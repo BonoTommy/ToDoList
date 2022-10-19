@@ -1,0 +1,170 @@
+:root {
+    --espacement-petit:10px;
+    --espacement-moyen: 20px;
+    --espacement-grand: 30px;
+    --espacement-tres-grand: 50px;
+    --police-primaire: Arial, Helvetica, sans-serif;
+}
+
+html {
+    font-family: var(--police-primaire);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/*--------------------------
+           Header
+----------------------------*/
+
+
+header {
+    margin: var(--espacement-moyen) var(--espacement-tres-grand);
+    padding-bottom: var(--espacement-grand);
+    border-bottom: 1px solid rgba(0, 0, 0, .25);
+}
+
+/*--------------------------
+           Main
+----------------------------*/
+
+main {
+    margin: var(--espacement-tres-grand) ;
+}
+
+/*--------------------------
+           Sections
+----------------------------*/
+
+*+section {
+    margin-top: var(--espacement-tres-grand);
+}
+
+.section__ajoutTache h3 {
+    margin-bottom: var(--espacement-grand);
+}
+
+.section__border {
+    padding: var(--espacement-moyen);
+    border: 1px solid black;
+}
+
+.section-border>h3+div {
+    margin-top: var(--espacement-grand);
+}
+
+.section__border>button+button{
+    margin-left: var(--espacement-moyen);
+}
+
+h3 {
+    margin: 0;
+}
+
+.section__border p {
+    margin: 0;
+}
+
+.section__border p+p {
+    padding-top: var(--espacement-moyen);
+}
+
+.section__border-detail {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/*--------------------------
+           Div
+----------------------------*/
+div {
+    margin-top: var(--espacement-moyen);
+}
+
+.info-liste {
+    flex-grow: 1;
+}
+
+.wrapper-flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.wrapper__flex-rangee {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.wrapper-flex-column {
+    flex-direction: column;
+}
+
+div>button {
+    margin-left: var(--espacement-moyen);
+}
+
+.info-liste>p {
+    margin: 0;
+}
+
+.wrapper__flex-rangee>h3 {
+    flex: 1;
+}
+
+.invisible {
+    display: none;
+}
+
+/*--------------------------
+           Input
+----------------------------*/
+
+.input-text {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+/*--------------------------
+           Buttons
+----------------------------*/
+
+button {
+    margin: 0;
+}
+
+.btn-ajouter {
+    display: block;
+    margin-top: var(--espacement-moyen);
+}
+
+.btn-tri {
+    margin-top: var(--espacement-tres-grand);
+}
+
+/*--------------------------
+        Classe JS
+----------------------------*/
+
+.erreur {
+    color: red;
+}
+
+/*--------------------------
+        Img
+----------------------------*/
+
+img{
+    align-self: flex-end;
+    cursor: pointer;
+    flex: 1;
+    max-width:30px;
+    max-height: 30px;
+}
+
+
+
