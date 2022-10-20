@@ -84,7 +84,8 @@ class Form {
                     
                 this.injecterListe(toDoList);
                 
-                new Tache(this._elListe);
+                new Tache(this._elListe.lastElementChild);
+                new OrganiserTaches(this._elListe.lastElementChild);
                 
             }
         

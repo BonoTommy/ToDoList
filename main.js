@@ -9,10 +9,4 @@ window.addEventListener('DOMContentLoaded', function() {
         new Form(elForms[i]);
     }
 
-    let elsOrganiserTaches = document.querySelectorAll('[data-js-liste]');
-
-    for (let i = 0,  l = elsOrganiserTaches.length; i < l; i++) {
-        new OrganiserTaches(elsOrganiserTaches[i]);
-    }
-
 });

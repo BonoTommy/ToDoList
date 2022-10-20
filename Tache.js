@@ -15,7 +15,6 @@ class Tache {
     init() {
        this.supprimerTache();
        this.afficherDetail();
-       //this._elDetailBtn.addEventListener('click', this.afficherDetail.bind(this))
     }
     
 
