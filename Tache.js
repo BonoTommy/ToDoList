@@ -4,8 +4,8 @@ class Tache {
         
 
 
-        this._elSupprimerBtn = this._el.querySelectorAll('[data-js-btnSupprimer]');
-        this._elDetailBtn = this._el.querySelectorAll('[data-js-btnAfficheDetail]');
+        this._elsSupprimerBtn = this._el.querySelectorAll('[data-js-btnSupprimer]');
+        this._elsDetailBtn = this._el.querySelectorAll('[data-js-btnAfficheDetail]');
         
         
         this.init();
@@ -20,10 +20,10 @@ class Tache {
     
 
     supprimerTache() {
-        for (let i = 0; i < this._elSupprimerBtn.length; i++) {
-            this._elSupprimerBtn[i].addEventListener('click', function(e){
+        for (let i = 0; i < this._elsSupprimerBtn.length; i++) {
+            this._elsSupprimerBtn[i].addEventListener('click', function(e){
 
-                toDoList.splice(i, 1,'');
+                toDoList.splice(parseInt(i), 1);
                 e.target.parentNode.remove();
                 
                 let elDetail = document.querySelector('[data-js-detail]');
@@ -41,9 +41,9 @@ class Tache {
     }
 
     afficherDetail() {
-        for (let i = 0; i < this._elDetailBtn.length; i++) {
+        for (let i = 0; i < this._elsDetailBtn.length; i++) {
 
-            this._elDetailBtn[i].addEventListener('click', function(e){
+            this._elsDetailBtn[i].addEventListener('click', function(e){
                 
                 //let indexBtnDetail = i,
                 let elDetail = document.querySelector('[data-js-detail]');
