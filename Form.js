@@ -41,10 +41,6 @@ class Form {
                 estValide1 = false;
             }
 
-        if (!this._elInputDescription.value) {
-            this._elInputDescription.value = 'Aucune description disponible.';
-        }
-
         if(elCheckedRadio) {
             for (let i = 0, l = elsInputRadio.length; i < l; i++) {
                 if (elsInputRadio[i].previousElementSibling.classList.contains('erreur')) {
@@ -66,6 +62,10 @@ class Form {
 
             if (estValide) {
                 
+                if (!this._elInputDescription.value) {
+                    this._elInputDescription.value = 'Aucune description disponible.';
+                }
+
                 let infos = {};
 
                 let cle = this._elInputTache.name,
