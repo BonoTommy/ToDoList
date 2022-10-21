@@ -66,19 +66,15 @@ class Form {
                     this._elInputDescription.value = 'Aucune description disponible.';
                 }
 
-                let infos = {};
+                let infos = {
 
-                let cle = this._elInputTache.name,
-                    valeur = this._elInputTache.value;
-                infos[cle] = valeur;
-                    
-                let description = this._elInputDescription.name,
-                        complementInfo = this._elInputDescription.value;
-                infos[description] = complementInfo;
-                
-                let importance = elCheckedRadio.name,
-                    degre = elCheckedRadio.value;
-                infos[importance] = degre;
+                    tache: this._elInputTache.value,
+
+                    description: this._elInputDescription.value,
+
+                    importance: elCheckedRadio.value
+
+                };
 
                 toDoList.push(infos);
                     
