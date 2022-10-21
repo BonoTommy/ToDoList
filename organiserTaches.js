@@ -1,55 +1,92 @@
 class OrganiserTaches {
-    constructor(el) {
-        this._el = el;
-        this._elsDivListe = document.querySelectorAll('[data-js-liste]');
-        this._elBtnTriAlpha = document.querySelector('[data-js-triAlpha]');
-        this._elBtnTriNum = document.querySelector('[data-js-triImportance]');
-        console.log(this._elBtnTriNum);
+    constructor() {
+        
+        this._elParent = document.querySelector('[data-js-liste]');
+        this._elBtnTriAlpha = document.querySelector('[data-js-tritache]');
+        this._elBtnTriNum = document.querySelector('[data-js-trinum]');
+        //this._elsBtnTri = document.querySelectorAll('[data-js-action]')
+        
+
+        //this._elParent = this._el.closest('[data-js-liste]');
         
         this.init();
     }
 
     init() {
-        this.triAlpha();
+        this._elBtnTriAlpha.addEventListener('click', this.triTache.bind(this));
+        this._elBtnTriNum.addEventListener('click', this.triNum.bind(this));
+
+        /*this._elSectionListe.addEventListener('click', function (e) {
+            if (e.target.dataset.jsAction == 'tache') this.triTache();
+            if (e.target.dataset.jsAction == 'importance') this.triNum();
+        }).blind(this)*/
     }
 
 
-    triAlpha(cle) {
-        this._elBtnTriAlpha.addEventListener('click', function() {
-            console.log('click');
-            toDoList.sort(function(a, b) {
-                   
-                if (a.tache > b.tache) {
-                    return 1;
-                }
-                if (b.tache > a.tache) {
-                    return -1;
-                }
-                return 0; 
+    triTache() {
+       
+        toDoList.sort(function(a, b) {
                 
-            })
+            if (a.tache > b.tache) {
+                return 1;
+            }
+            if (b.tache > a.tache) {
+                return -1;
+            }
+            return 0; 
+                
         })
+
+        this._elParent.innerHTML = '';
+
+        for (let i = 0, l = toDoList.length; i < l; i++) {
+            let elListe = document.querySelector('[data-js-liste]');
+
+            let elNouvelDivListe = `<div class="wrapper-flex-row" data-js-tache="${i}">
+                                    <p><small>Tâche : </small>${toDoList[i].tache} - <small>Importance : </small>${toDoList[i].importance}</p>
+                                    <button class="btn-liste" type="submit" data-js-btnAfficheDetail="${i}">Afficher le détail</button>
+                                    <button class="btn-liste" type="submit" data-js-btnSupprimer="${i}">Supprimer</button>
+                                </div>`
+
+            elListe.insertAdjacentHTML('beforeEnd', elNouvelDivListe);
+            new Tache(elListe.lastElementChild);
+        }
     }
+    
 
     
 
     triNum() {
-        this._elBtnTriNum.addEventListener('click', function() {
-            console.log('click');
-            toDoList.sort(function(a, b) {
-                let importanceA = a.importance, 
-                    importanceB = b.importance;
-                
-                if (importanceA > importanceB) {
-                    return -1;
-                } else if (importanceB > importanceA) {
-                    return 1;
-                } 
-                return 0;
-                
-                
-            })
+        
+        
+        toDoList.sort(function(a, b) {
+        
+            if (a.importance < b.importance) {
+                return -1;
+            } 
+            
+            if (b.importance < a.importance) {
+                return 1;
+            } 
+            return 0;
         })
+
+        this._elParent.innerHTML = '';
+
+        for (let i = 0, l = toDoList.length; i < l; i++) {
+            let elListe = document.querySelector('[data-js-liste]');
+
+            let elNouvelDivListe = `<div class="wrapper-flex-row" data-js-tache="${i}">
+                                    <p><small>Tâche : </small>${toDoList[i].tache} - <small>Importance : </small>${toDoList[i].importance}</p>
+                                    <button class="btn-liste" type="submit" data-js-btnAfficheDetail="${i}">Afficher le détail</button>
+                                    <button class="btn-liste" type="submit" data-js-btnSupprimer="${i}">Supprimer</button>
+                                </div>`
+
+            elListe.insertAdjacentHTML('beforeEnd', elNouvelDivListe);
+            new Tache(elListe.lastElementChild);
+            
+        }
+        
     }
 
 }

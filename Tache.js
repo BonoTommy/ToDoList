@@ -1,29 +1,47 @@
 class Tache {
     constructor(el) {
         this._el = el;
-        
+        this._index = this._el.dataset.jsTache;
+        this._elSupprimerBtn = this._el.querySelector('[data-js-btnSupprimer]');
+        this._elDetailBtn = this._el.querySelector('[data-js-btnAfficheDetail]');
 
-
-        this._elsSupprimerBtn = this._el.querySelectorAll('[data-js-btnSupprimer]');
-        this._elsDetailBtn = this._el.querySelectorAll('[data-js-btnAfficheDetail]');
-        
+        this._elParent = this._el.closest('[data-js-liste]');
         
         this.init();
     }
 
     
     init() {
-       this.supprimerTache();
-       this.afficherDetail();
+       this._elSupprimerBtn.addEventListener('click', this.supprimerTache.bind(this));
+       this._elDetailBtn.addEventListener('click', this.afficherDetail.bind(this));
     }
     
 
     supprimerTache() {
-        for (let i = 0; i < this._elsSupprimerBtn.length; i++) {
-            this._elsSupprimerBtn[i].addEventListener('click', function(e){
 
-                toDoList.splice(parseInt(i), 1);
-                e.target.parentNode.remove();
+        toDoList.splice(this._index,1);
+
+        this._elParent.innerHTML = '';
+
+        for (let i = 0, l = toDoList.length; i < l; i++) {
+            //let elListe = document.querySelector('[data-js-liste]');
+
+            let elNouvelDivListe = `<div class="wrapper-flex-row" data-js-tache="${i}">
+                                    <p><small>Tâche : </small>${toDoList[i].tache} - <small>Importance : </small>${toDoList[i].importance}</p>
+                                    <button class="btn-liste" type="submit" data-js-btnAfficheDetail="${i}">Afficher le détail</button>
+                                    <button class="btn-liste" type="submit" data-js-btnSupprimer="${i}">Supprimer</button>
+                                </div>`
+
+            this._elParent.insertAdjacentHTML('beforeEnd', elNouvelDivListe);
+            new Tache(this._elParent.lastElementChild);
+        }
+        
+        
+    }
+
+            /*if(this._index == toDoList [i]) {
+                toDoList.splice(i, 1);
+                this._el.remove();
                 
                 let elDetail = document.querySelector('[data-js-detail]');
                 if(elDetail.lastElementChild) {
@@ -31,42 +49,47 @@ class Tache {
                         elDetail.lastElementChild.remove();
                     }
                 }
-                console.log(toDoList)
-            });
             
-        }
-        ;
         
-    }
+        console.log('click')   
+        }*/
+
+
+        
+        
+  
+
+
+        
 
     afficherDetail() {
-        for (let i = 0; i < this._elsDetailBtn.length; i++) {
+        
+        for (let i = 0, l = toDoList.length; i < l; i++) {
 
-            this._elsDetailBtn[i].addEventListener('click', function(e){
-                
-                //let indexBtnDetail = i,
-                let elDetail = document.querySelector('[data-js-detail]');
-                
-                if(elDetail.lastElementChild) {
-                    elDetail.lastElementChild.remove();
-                }
-                
-                //for (let i = 0, l = toDoList.length; i < l; i++) {
-                    //if (indexBtnDetail == i) {
-                        let elNouvelDivDetail = `<div class="div__montreDetail" data-js-montreDetail="${i}">
-                                                    <p><small>Tâche : </small>${toDoList[i].tache}</p>
-                                                    <p><small>Description : </small>${toDoList[i].description}</p>
-                                                    <p><small>Importance : </small>${toDoList[i].importance}</p>
-                                                </div>`;
 
-                        elDetail.insertAdjacentHTML('beforeEnd', elNouvelDivDetail);   
-                    //}
-                console.log(toDoList);    
-                //}
-            })
-        }
+            //let indexBtnDetail = i,
+            let elDetail = document.querySelector('[data-js-detail]');
+            
+            if(elDetail.lastElementChild) {
+                elDetail.lastElementChild.remove();
+            }
+            
+            
+            let elNouvelDivDetail = `<div class="div__montreDetail" data-js-montreDetail="${i}">
+                                        <p><small>Tâche : </small>${toDoList[this._index].tache}</p>
+                                        <p><small>Description : </small>${toDoList[this._index].description}</p>
+                                        <p><small>Importance : </small>${toDoList[this._index].importance}</p>
+                                    </div>`;
+
+            elDetail.insertAdjacentHTML('beforeEnd', elNouvelDivDetail);
+                
+            }
+            
+              
+            
+            
+        //}
         
     }
 
 }
-

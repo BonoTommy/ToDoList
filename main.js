@@ -8,5 +8,5 @@ window.addEventListener('DOMContentLoaded', function() {
     for (let i = 0,  l = elForms.length; i < l; i++) {
         new Form(elForms[i]);
     }
-
+    new OrganiserTaches;
 });

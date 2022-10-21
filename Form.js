@@ -84,8 +84,8 @@ class Form {
                     
                 this.injecterListe(toDoList);
                 
-                new Tache(this._elListe.lastElementChild);
-                new OrganiserTaches(this._elListe.lastElementChild);
+                this._elQuestionnaire.reset();
+                
                 
             }
         
@@ -103,11 +103,10 @@ class Form {
                                 </div>`
 
             this._elListe.insertAdjacentHTML('beforeEnd', elNouvelDivListe);
+            
 
-            this._elInputTache.value = '';
-            this._elInputDescription.value = '';
-            let unchecked = document.querySelector('input[type=radio]:checked');
-            unchecked.checked = false;
+            new Tache(this._elListe.lastElementChild);
+            
         
     }
 
