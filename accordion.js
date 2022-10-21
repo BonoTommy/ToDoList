@@ -12,7 +12,9 @@ class Accordion {
     }
 
     fermeTiroir() {
+        
         this._elDivAccordion.classList.toggle('is-open');
+        
         if(this._elImgChevron.src != 'down.svg') {
             this._elImgChevron.src = 'down.svg';
         } else if (this._elImgChevron.src != 'up.svg') {
