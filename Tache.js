@@ -24,7 +24,6 @@ class Tache {
         this._elParent.innerHTML = '';
 
         for (let i = 0, l = toDoList.length; i < l; i++) {
-            //let elListe = document.querySelector('[data-js-liste]');
 
             let elNouvelDivListe = `<div class="wrapper-flex-row" data-js-tache="${i}">
                                     <p><small>Tâche : </small>${toDoList[i].tache} - <small>Importance : </small>${toDoList[i].importance}</p>
@@ -39,35 +38,10 @@ class Tache {
         
     }
 
-            /*if(this._index == toDoList [i]) {
-                toDoList.splice(i, 1);
-                this._el.remove();
-                
-                let elDetail = document.querySelector('[data-js-detail]');
-                if(elDetail.lastElementChild) {
-                    if(elDetail.lastElementChild.dataset.jsMontredetail = i) {
-                        elDetail.lastElementChild.remove();
-                    }
-                }
-            
-        
-        console.log('click')   
-        }*/
-
-
-        
-        
-  
-
-
-        
-
     afficherDetail() {
         
         for (let i = 0, l = toDoList.length; i < l; i++) {
 
-
-            //let indexBtnDetail = i,
             let elDetail = document.querySelector('[data-js-detail]');
             
             if(elDetail.lastElementChild) {
@@ -83,13 +57,6 @@ class Tache {
 
             elDetail.insertAdjacentHTML('beforeEnd', elNouvelDivDetail);
                 
-            }
-            
-              
-            
-            
-        //}
-        
+        }
     }
-
 }

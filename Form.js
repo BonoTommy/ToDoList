@@ -26,8 +26,8 @@ class Form {
 		e.preventDefault();
         
         let estValide1 = true,
-            estValide2 = true,
-            estValide = true;
+            estValide2 = true;
+           
 
         let elCheckedRadio = this._elQuestionnaire.querySelector('input[type=radio]:checked'),
             elsInputRadio = this._elQuestionnaire.querySelectorAll('[data-js-radio]');
@@ -54,36 +54,31 @@ class Form {
             }
         }
 
+
         if (estValide1 && estValide2) {
-            estValide = true;
-        } else {
-            estValide = false;
-        }
-
-            if (estValide) {
-                
-                if (!this._elInputDescription.value) {
-                    this._elInputDescription.value = 'Aucune description disponible.';
-                }
-
-                let infos = {
-
-                    tache: this._elInputTache.value,
-
-                    description: this._elInputDescription.value,
-
-                    importance: elCheckedRadio.value
-
-                };
-
-                toDoList.push(infos);
-                    
-                this.injecterListe(toDoList);
-                
-                this._elQuestionnaire.reset();
-                
-                
+            
+            if (!this._elInputDescription.value) {
+                this._elInputDescription.value = 'Aucune description disponible.';
             }
+
+            let infos = {
+
+                tache: this._elInputTache.value,
+
+                description: this._elInputDescription.value,
+
+                importance: elCheckedRadio.value
+
+            };
+
+            toDoList.push(infos);
+                
+            this.injecterListe(toDoList);
+            
+            this._elQuestionnaire.reset();
+                
+                
+        }
         
     }
 
