@@ -49,7 +49,7 @@ class Tache {
             }
             
             
-            let elNouvelDivDetail = `<div class="div__montreDetail" data-js-montreDetail="${i}">
+            let elNouvelDivDetail = `<div class="div__montreDetail" data-js-accordion="${i}">
                                         <p><small>Tâche : </small>${toDoList[this._index].tache}</p>
                                         <p><small>Description : </small>${toDoList[this._index].description}</p>
                                         <p><small>Importance : </small>${toDoList[this._index].importance}</p>

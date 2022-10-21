@@ -9,4 +9,5 @@ window.addEventListener('DOMContentLoaded', function() {
         new Form(elForms[i]);
     }
     new OrganiserTaches;
+    new Accordion;
 });

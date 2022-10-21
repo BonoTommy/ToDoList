@@ -155,7 +155,7 @@ button {
 }
 
 /*--------------------------
-        Img
+        Accordeon
 ----------------------------*/
 
 img{
@@ -164,6 +164,14 @@ img{
     flex: 1;
     max-width:30px;
     max-height: 30px;
+}
+
+.info__detail {
+    display: none;
+}
+
+.is-open {
+    display: block;
 }
 
 
